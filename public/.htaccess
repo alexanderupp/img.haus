@@ -2,11 +2,13 @@
 Options +FollowSymLinks
 RewriteEngine On
 
-RewriteCond %{HTTPS} !=on
-# This checks to make sure the connection is not already HTTPS
-RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R,L]
+RewriteBase /
 
-RewriteRule ^upload /upload.php [L]
+#RewriteCond %{HTTPS} !=on
+# This checks to make sure the connection is not already HTTPS
+#RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R,L]
+
+RewriteRule upload[/]?$ ./upload.php?$ [L]
 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f

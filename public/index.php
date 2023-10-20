@@ -5,18 +5,50 @@
 <html lang="en-US">
 	<head>
 		<meta name="viewport" content="width=device-width; initial-scale=1.0"/>
-		<meta name="description" content="Seriously simple image hosting | img.haus"/>
+		<meta name="description" content="Seriously simple image hosting with img.haus."/>
+		<title>img.haus | Seriously simple image hosting</title>
+		<link rel="icon" href="/favicon.png"/>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;800&family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/styles.css"/>
+		<script src="https://unpkg.com/htmx.org@1.9.6"></script>
 	</head>
 	<body>
-		<div id="progress-bar"></div>
-		<div id="container">
-			<div id="upload-container">
-				<h1>imghaus</h1>
-				<h2 id='tagline-or-whatever'>Seriously simple image hosting</h2>
-				<form id='form' hx-encoding='multipart/form-data' hx-post='/upload'>
-
-				</form>
-			</div>
+		<div id="progress"></div>
+		<div id="app">
+			<header class="std-border">
+				<p class="std-pad font-accent">img.haus</p>
+			</header>
+			<main>
+				<section id="main">
+					<h1>Seriously simple image hosting</h1>
+					<form id="uploadform" hx-encoding="multipart/form-data" hx-post="/upload" hx-swap="innerHTML" hx-target="#upload-result">
+						<div id="file">
+							<p id="file_text">
+								<span>Click to select image</span> <img src="/arrow.svg" alt="-->"/>
+							</p>
+							<input type="file" id="file_input" name="image" />
+						</div>
+						<button id="upload">Upload</button>
+						<div id="upload-result"></div>
+					</form>
+				</section>
+				<section id="terms">
+					<p class="std-pad font-accent">
+						terms
+					</p>
+					<ul id="terms-list">
+						<li>DO upload images you have permission to use. This means images you have created or been given permission by the original creator.</li>
+						<li>DO NOT use us to host your website media content. Reddit/forum posts are allowed.</li>
+						<li>DO NOT upload gore, or material that is threatening, harassing, defamatory, or that encourages violence or crime.</li>
+						<li>DO NOT upload illegal content such as child porn or nonconsensual/revenge porn.</li>
+						</ul>
+				</section>
+			</main>
+			<!-- <footer class="std-border">
+				<a href="javascript:void(0)">REPORT IMAGE</a>
+			</footer> -->
 		</div>
+		<script type="text/javascript" src="/js/imghaus.js"></script>
 	</body>
 </html>
