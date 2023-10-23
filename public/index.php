@@ -1,54 +1,39 @@
 <?php
-	header("Content-Type: text/html; charset=UTF-8");
-?>
-<!DOCTYPE html>
-<html lang="en-US">
-	<head>
-		<meta name="viewport" content="width=device-width; initial-scale=1.0"/>
-		<meta name="description" content="Seriously simple image hosting with img.haus."/>
-		<title>img.haus | Seriously simple image hosting</title>
-		<link rel="icon" href="/favicon.png"/>
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;800&family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="css/styles.css"/>
-		<script src="https://unpkg.com/htmx.org@1.9.6"></script>
-	</head>
-	<body>
-		<div id="progress"></div>
-		<div id="app">
-			<header class="std-border">
-				<p class="std-pad font-accent">img.haus</p>
-			</header>
-			<main>
-				<section id="main">
-					<h1>Seriously simple image hosting</h1>
-					<form id="uploadform" hx-encoding="multipart/form-data" hx-post="/upload" hx-swap="innerHTML" hx-target="#upload-result">
-						<div id="file">
-							<p id="file_text">
-								<span>Click to select image</span> <img src="/arrow.svg" alt="-->"/>
-							</p>
-							<input type="file" id="file_input" name="image" />
-						</div>
-						<button id="upload">Upload</button>
-						<div id="upload-result"></div>
-					</form>
-				</section>
-				<section id="terms">
-					<p class="std-pad font-accent">
-						terms
-					</p>
-					<ul id="terms-list">
-						<li>DO upload images you have permission to use. This means images you have created or been given permission by the original creator.</li>
-						<li>DO NOT use us to host your website media content. Reddit/forum posts are allowed.</li>
-						<li>DO NOT upload gore, or material that is threatening, harassing, defamatory, or that encourages violence or crime.</li>
-						<li>DO NOT upload illegal content such as child porn or nonconsensual/revenge porn.</li>
-						</ul>
-				</section>
-			</main>
-			<!-- <footer class="std-border">
-				<a href="javascript:void(0)">REPORT IMAGE</a>
-			</footer> -->
-		</div>
-		<script type="text/javascript" src="/js/imghaus.js"></script>
-	</body>
-</html>
+	define("APP_PATH", realpath(__DIR__ . "/../app"));
+	define("VIEW_PATH", realpath(__DIR__ . "/../views"));
+	define("UPLOAD_PATH", realpath(__DIR__ . "/../images"));
+
+	include APP_PATH . "/autoload.php";
+
+	$Router = new Router();
+
+	// add home page
+	$Router->addRoute("GET", "/", function() {		
+		include VIEW_PATH . "/home.php";
+		exit;
+	});
+
+	// add upload handler
+	$Router->addRoute("POST", "/upload/?", function() {
+		$Uploader = new Uploader();
+
+		$Uploader->upload();
+	});
+	
+	// add image urls
+	$Router->addRoute("GET", "/(?P<key>[a-zA-Z0-9]{6,9})/?", function(string $key) {
+			echo "image: " . $key; exit;
+	});
+
+	// attempt to match a route
+	try {
+		$Router->match($_SERVER["REQUEST_METHOD"], $_SERVER["REQUEST_URI"]);
+	} catch(Exception $e) {
+		// any routing error takes us home
+		http_response_code(404);
+
+		include VIEW_PATH . "/home.php";
+		exit;
+	}
+
+	exit;
