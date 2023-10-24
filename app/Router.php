@@ -1,4 +1,7 @@
 <?php
+	/**
+	 * Basic URL router
+	 */
 	class Router {
 		protected array $routes = [];
 

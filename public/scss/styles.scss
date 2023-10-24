@@ -36,7 +36,7 @@ body {
 	
 	&.alternate {
 		--color-accent:#F9DF4B;
-		--color-main:#CDCECA;
+		--color-main:#E94536;
 	}
 }
 
@@ -48,6 +48,24 @@ main {
 
 	@media screen and (max-width:768px) {
 		flex-direction:column;
+	}
+}
+
+footer {
+	border-top:1px solid var(--color-black);
+	margin:1em 40px 40px 40px;
+	padding-top:1em;
+	position:relative;
+	z-index:2;
+
+	a {
+		color:var(--color-black);
+		display:inline-block;
+		transition:color 0.3s ease-out;
+
+		&:hover {
+			color:var(--color-accent);
+		}
 	}
 }
 

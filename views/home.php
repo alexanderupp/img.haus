@@ -29,18 +29,18 @@
 						terms
 					</p>
 					<ul id="terms-list">
-						
 						<li>DO upload images you have permission to use. This means images you have created or been given permission by the original creator.</li>
 						<li>DO NOT use us to host your website media content. Reddit/forum posts are allowed.</li>
-						<li>DO NOT upload gore, or material that is threatening, harassing, defamatory, or that encourages violence or crime.</li>
+						<li>DO NOT upload gore, or material that is threatening, harassing, defamatory, or that encourages violence or crime, or in any way could be considered hate speech.</li>
 						<li>DO NOT upload illegal content such as child porn or nonconsensual/revenge porn.</li>
-						</ul>
+					</ul>
 				</section>
 			</main>
-			<!-- <footer class="std-border">
-				<a href="javascript:void(0)">REPORT IMAGE</a>
-			</footer> -->
+			<!--  -->
 		</div>
+		<footer>
+			<a href="javascript:void(0)">report image</a>
+		</footer>
 		<script type="text/javascript" src="/js/imghaus.js"></script>
 	</body>
 </html>

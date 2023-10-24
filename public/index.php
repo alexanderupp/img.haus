@@ -18,11 +18,20 @@
 		$Uploader = new Uploader();
 
 		$Uploader->upload();
+		exit;
 	});
 	
 	// add image urls
 	$Router->addRoute("GET", "/(?P<key>[a-zA-Z0-9]{6,9})/?", function(string $key) {
-			echo "image: " . $key; exit;
+			$Image = new Image($key);
+
+			if(false !== ($type = $Image->validate())) {
+				$Image->render($type);
+			} else {
+				$Image->setKey("notfound");
+				$Image->render("png");
+			}
+			exit;
 	});
 
 	// attempt to match a route
