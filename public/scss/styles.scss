@@ -1,7 +1,7 @@
 :root {
 	// colors
-	--color-main:#F9DF4B;
-	--color-accent:#E94536;
+	--color-main:#f1b612;
+	--color-accent:#28a5d5;
 	--color-black:#29292B;
 
 	//font sizes
@@ -35,8 +35,8 @@ body {
 	min-height:100dvh;
 	
 	&.alternate {
-		--color-accent:#F9DF4B;
-		--color-main:#E94536;
+		--color-accent:#f1b612;
+		--color-main:#28a5d5;
 	}
 }
 
