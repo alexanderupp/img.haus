@@ -11,5 +11,4 @@
 	</div>
 	<button id="upload">Upload</button>
 	<div id="upload-result" class="complete"><?php echo $message ?? ""; ?> </div>
-	
 </form>

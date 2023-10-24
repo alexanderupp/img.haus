@@ -34,7 +34,7 @@
 				);
 			}
 
-			$pathData = explode(".", $_FILES["image"]["name"]);
+			$pathData = explode(".", strtolower($_FILES["image"]["name"]));
 			$ext = end($pathData);
 			$type = $_FILES["image"]["type"];
 

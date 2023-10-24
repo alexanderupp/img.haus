@@ -36,11 +36,11 @@
 					</ul>
 				</section>
 			</main>
-			<!--  -->
+			
 		</div>
-		<footer>
+		<!-- <footer>
 			<a href="javascript:void(0)">report image</a>
-		</footer>
-		<script type="text/javascript" src="/js/imghaus.js"></script>
+		</footer> -->
+		<script type="text/javascript" src="/js/imghaus.min.js"></script>
 	</body>
 </html>

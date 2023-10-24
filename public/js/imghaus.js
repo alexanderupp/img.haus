@@ -11,7 +11,20 @@
 	htmx.on("#uploadform", "htmx:afterSettle", e => {
 		htmx.find("#progress").style.display = "none";
 		htmx.find("#progress").style.width = "0%";
+
 		document.body.classList.toggle("alternate");
+
+		const result = document.querySelector("#upload-result .result");
+
+		if(result) {
+			result.addEventListener("focus", e => {
+				result.select();
+				result.setSelectionRange(0, 99999);
+
+				navigator.clipboard.writeText(result.value);
+				console.log(result.value);
+			});
+		}
 	});
 	htmx.on("#uploadform", "htmx:xhr:progress", evt => {
 		htmx.find("#progress").style.width = (evt.detail.loaded/evt.detail.total * 100) + "%";
