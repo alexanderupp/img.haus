@@ -15,12 +15,6 @@
 		 * @return void
 		 */
 		public function upload() : void {
-			// if($_FILES["image"]["error"] != UPLOAD_ERR_OK) {
-			// 	$this->result(
-			// 		"<p>There was an unknown error during the upload.</p>"
-			// 	);
-			// }
-
 			// check for any errors
 			if(($_FILES["image"]["error"] == UPLOAD_ERR_INI_SIZE) || ($_FILES["image"]["size"] > $this->maxSize)) {
 				$this->result(
@@ -159,6 +153,7 @@
 
 		/**
 		 * Creates a hash key for the image
+		 * 
 		 * @param string $ext		File extension
 		 * @return string
 		 */

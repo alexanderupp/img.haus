@@ -46,6 +46,12 @@
 			return false;
 		}
 
+		/**
+		 * Sets the image key
+		 * 
+		 * @param string $_key		New image hash key
+		 * @return void
+		 */
 		public function setKey(string $_key) : void {
 			$this->key = $_key;
 		}
