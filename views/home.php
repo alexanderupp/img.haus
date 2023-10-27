@@ -6,6 +6,7 @@
 	<head>
 		<meta name="viewport" content="width=device-width; initial-scale=1.0"/>
 		<meta name="description" content="Seriously simple image hosting with img.haus."/>
+		<meta property="og:image" content="https://img.haus/og.png"/>
 		<title>img.haus | Seriously simple image hosting</title>
 		<link rel="icon" href="/favicon.png"/>
 		<link rel="preconnect" href="https://fonts.googleapis.com">
