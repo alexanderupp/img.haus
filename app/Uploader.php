@@ -60,7 +60,7 @@
 				);
 			} else {
 				$this->result(
-					"<input type='text' class='result' value='https://img.haus/" . $upload . "'/>"
+					"<input type='text' class='textdata' value='https://img.haus/" . $upload . "'/>"
 					);
 			}
 		}

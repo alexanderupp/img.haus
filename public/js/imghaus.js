@@ -30,6 +30,17 @@
 		htmx.find("#progress").style.width = (evt.detail.loaded/evt.detail.total * 100) + "%";
 	});
 
+	document.querySelectorAll(".report-toggle").forEach(repToggle => {
+		repToggle.addEventListener("click", e => {
+			e.preventDefault();
+
+			document.getElementById("action-form").classList.toggle("alternate");
+
+			window.scrollTo({top:0, behavior:"smooth"});
+		});
+	});
+
+
 	document.body.addEventListener("initIMGHaus", e => {
 		document.getElementById("file_input").addEventListener("change", function(e) {
 			const file = this.files[0];

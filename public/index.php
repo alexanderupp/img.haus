@@ -20,6 +20,21 @@
 		$Uploader->upload();
 		exit;
 	});
+
+	// add image report/flag view
+	$Router->addRoute("GET", "/report/?", function() {
+		include VIEW_PATH . "/report-form.php";
+		exit;
+	});
+
+	// add image report/flag submission
+	$Router->addRoute("POST", "/report/?", function() {
+		$Report = new Report();
+
+		if($Report->logRequest($_POST["image_url"])) {
+			include VIEW_PATH . "/report-success.php";
+		}
+	});
 	
 	// add image urls
 	$Router->addRoute("GET", "/(?P<key>[a-zA-Z0-9]{6,9})/?", function(string $key) {

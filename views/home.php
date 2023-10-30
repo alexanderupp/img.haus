@@ -23,7 +23,10 @@
 			<main>
 				<section id="main">
 					<h1>Seriously simple image hosting</h1>
-					<?php include VIEW_PATH . "/form.php"; ?>
+					<div id="action-form">
+						<?php include VIEW_PATH . "/upload-form.php"; ?>
+						<?php include VIEW_PATH . "/report-form.php"; ?>
+					</div>
 				</section>
 				<section id="terms">
 					<p class="dbl-pad font-accent">
@@ -37,11 +40,10 @@
 					</ul>
 				</section>
 			</main>
-			
 		</div>
-		<!-- <footer>
-			<a href="javascript:void(0)">report image</a>
-		</footer> -->
-		<script type="text/javascript" src="/js/imghaus.min.js"></script>
+		<footer>
+			<label class="report-toggle">report image</label>
+		</footer>
+		<script type="text/javascript" src="/js/imghaus.js"></script>
 	</body>
 </html>
