@@ -1,8 +1,5 @@
 *.psd
 *.pdn
 
-admin*
 config*
 images*
-
-app/Report.php

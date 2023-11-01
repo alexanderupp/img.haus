@@ -31,8 +31,10 @@
 	$Router->addRoute("POST", "/report/?", function() {
 		$Report = new Report();
 
-		if($Report->logRequest($_POST["image_url"])) {
-			include VIEW_PATH . "/report-success.php";
+		if($Report->logRequest($_POST["report_url"])) {
+			$Report->success();
+		} else {
+			$Report->error();
 		}
 	});
 	

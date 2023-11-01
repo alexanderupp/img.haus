@@ -30,6 +30,21 @@
 		htmx.find("#progress").style.width = (evt.detail.loaded/evt.detail.total * 100) + "%";
 	});
 
+	htmx.on("#reportform", "htmx:beforeRequest", e => {
+		const url = htmx.find("#report_url");
+
+		if(url.value.length < 23) {
+			htmx.trigger(e.detail.elt, "htmx:abort");
+			htmx.find("#report-result").innerHTML = "<p>Please enter a valid url.</p>";
+
+			e.preventDefault();
+			return false;
+		}
+
+		htmx.find("#submit-report").setAttribute("disabled", true);
+		htmx.find("#report-result").innerHTML = "<p>sending...</p>";
+	});
+
 	document.querySelectorAll(".report-toggle").forEach(repToggle => {
 		repToggle.addEventListener("click", e => {
 			e.preventDefault();

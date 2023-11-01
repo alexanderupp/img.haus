@@ -79,7 +79,7 @@
 
 			header("HX-Trigger-After-Swap: initIMGHaus");
 
-			include VIEW_PATH . "/form.php";
+			include VIEW_PATH . "/upload-form.php";
 			exit;
 		}
 

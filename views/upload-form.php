@@ -9,6 +9,6 @@
 		</p>
 		<input type="file" id="file_input" name="image" accept=".jpeg,.jpg,.png" required placeholder="Click to select an image"/>
 	</div>
-	<button id="upload">Upload</button>
+	<button type="submit" id="upload">Upload</button>
 	<div id="upload-result" class="complete"><?php echo $message ?? ""; ?> </div>
 </form>

@@ -42,7 +42,7 @@
 			</main>
 		</div>
 		<footer>
-			<label class="report-toggle">report image</label>
+			<button class="report-toggle">report image</button>
 		</footer>
 		<script type="text/javascript" src="/js/imghaus.js"></script>
 	</body>
