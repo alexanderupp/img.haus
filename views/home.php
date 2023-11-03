@@ -1,9 +1,7 @@
-<?php
-	header("Content-Type: text/html; charset=UTF-8");
-?>
 <!DOCTYPE html>
 <html lang="en-US">
 	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 		<meta name="viewport" content="width=device-width; initial-scale=1.0"/>
 		<meta name="description" content="Seriously simple image hosting with img.haus."/>
 		<meta property="og:image" content="https://img.haus/og.png"/>
@@ -14,36 +12,25 @@
 		<link rel="stylesheet" type="text/css" href="css/styles.css"/>
 		<script src="https://unpkg.com/htmx.org@1.9.6"></script>
 	</head>
-	<body>
+	<body class="report">
 		<div id="progress"><div id="progress-bar"></div></div>
 		<div id="app">
-			<header class="std-border">
+			<header class="std-border name">
 				<p class="std-pad font-accent">img.haus</p>
 			</header>
 			<main>
-				<section id="main">
-					<h1>Seriously simple image hosting</h1>
-					<div id="action-form">
-						<?php include VIEW_PATH . "/upload-form.php"; ?>
-						<?php include VIEW_PATH . "/report-form.php"; ?>
-					</div>
-				</section>
-				<section id="terms">
-					<p class="dbl-pad font-accent">
-						terms
-					</p>
-					<ul id="terms-list">
-						<li>Only upload images you have permission to use. This means images you have created or been given permission by the original creator.</li>
-						<li>Do not use us to host your website media content. Reddit/forum posts are allowed.</li>
-						<li>Do not upload gore, or material that is threatening, harassing, defamatory, or that encourages violence or crime, or in any way could be considered hate speech.</li>
-						<li>Do not upload illegal content such as child porn or nonconsensual/revenge porn.</li>
-					</ul>
-				</section>
+				<?php include VIEW_PATH . "/main.php"; ?>
 			</main>
 		</div>
 		<footer>
 			<button class="report-toggle">report image</button>
 		</footer>
+		<div id="report-container">
+			<div class="std-border name">
+				<p class="std-pad font-accent">img.haus</p>
+			</div>
+			<?php include VIEW_PATH . "/report-form.php"; ?>
+		</div>
 		<script type="text/javascript" src="/js/imghaus.js"></script>
 	</body>
 </html>

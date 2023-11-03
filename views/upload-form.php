@@ -1,7 +1,7 @@
 <form id="uploadform" hx-encoding="multipart/form-data" hx-post="/upload/" hx-swap="innerHTML">
-	<p class="dbl-pad font-accent">
+	<h2 class="dbl-pad font-accent">
 		upload
-	</p>
+	</h2>
 	<p>Images must be 5MB or smaller.</p>
 	<div id="file">
 		<p id="file_text">

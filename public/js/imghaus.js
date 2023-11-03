@@ -5,9 +5,11 @@
 		}
 
 		htmx.find("#upload").setAttribute("disabled", true);
+		htmx.find("#file_input").setAttribute("disabled", true);
 		htmx.find("#progress").style.display = "block";
 		htmx.find("#upload-result").innerHTML = "<p>uploading...</p>";
 	});
+
 	htmx.on("#uploadform", "htmx:afterSettle", e => {
 		htmx.find("#progress").style.display = "none";
 		htmx.find("#progress").style.width = "0%";
@@ -26,6 +28,7 @@
 			});
 		}
 	});
+
 	htmx.on("#uploadform", "htmx:xhr:progress", evt => {
 		htmx.find("#progress").style.width = (evt.detail.loaded/evt.detail.total * 100) + "%";
 	});
@@ -42,6 +45,7 @@
 		}
 
 		htmx.find("#submit-report").setAttribute("disabled", true);
+		htmx.find("#report_url").setAttribute("disabled", true);
 		htmx.find("#report-result").innerHTML = "<p>sending...</p>";
 	});
 
@@ -49,7 +53,7 @@
 		repToggle.addEventListener("click", e => {
 			e.preventDefault();
 
-			document.getElementById("action-form").classList.toggle("alternate");
+			document.body.classList.toggle("report");
 
 			window.scrollTo({top:0, behavior:"smooth"});
 		});
@@ -63,6 +67,7 @@
 			if(file.size > 5242880) {
 				htmx.find("#upload-result").innerHTML = "<p>Your image exceeds the file size limit</p>";
 				htmx.find("#upload").setAttribute("disabled", true);
+				htmx.find("#file_input").setAttribute("disabled", true);
 			} else {
 				htmx.find("#upload").removeAttribute("disabled");
 				htmx.find("#upload-result").innerHTML = "<p></p>";

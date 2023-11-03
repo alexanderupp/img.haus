@@ -1,5 +1,5 @@
 <?php
-	class Uploader {
+	class Uploader extends Result {
 		private array $types = [
 			"jpg" => "image/jpeg",
 			"jpeg" => "image/jpeg",
@@ -18,12 +18,14 @@
 			// check for any errors
 			if(($_FILES["image"]["error"] == UPLOAD_ERR_INI_SIZE) || ($_FILES["image"]["size"] > $this->maxSize)) {
 				$this->result(
+					self::UPLOAD,
 					"<p>Your image exceeds the 5MB upload size.</p>"
 				);
 			}
 
 			if($_FILES["image"]["error"] == UPLOAD_ERR_NO_FILE) {
 				$this->result(
+					self::UPLOAD,
 					"<p>The image was only partially uploaded. Please try again.</p>"
 				);
 			}
@@ -38,6 +40,7 @@
 				unlink($_FILES["image"]["tmp_name"]);
 
 				$this->result(
+					self::UPLOAD,
 					"<p>Invalid file type.</p>"
 				);
 			}
@@ -48,6 +51,7 @@
 				unlink($_FILES["image"]["tmp_name"]);
 
 				$this->result(
+					self::UPLOAD,
 					"<p>Invalid file type.</p>"
 				);
 			}
@@ -56,31 +60,15 @@
 
 			if(!$upload) {
 				$this->result(
+					self::UPLOAD,
 					"<p>There was an error saving the image. Please try again<p>"
 				);
 			} else {
 				$this->result(
-					"<input type='text' class='textdata' value='https://img.haus/" . $upload . "'/>"
-					);
+					self::UPLOAD,
+					"<p class='std-pad'>Your image was successfully upload!</p><input type='text' class='textdata result' value='https://img.haus/" . $upload . "'/>"
+				);
 			}
-		}
-
-		/**
-		 * Creates the upload response
-		 * 
-		 * @return void
-		 */
-		private function result(string $_result = "") : void {
-			$message = null;
-
-			if($_result) {
-				$message = $_result;
-			}
-
-			header("HX-Trigger-After-Swap: initIMGHaus");
-
-			include VIEW_PATH . "/upload-form.php";
-			exit;
 		}
 
 		/**

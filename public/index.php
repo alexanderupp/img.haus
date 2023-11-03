@@ -39,7 +39,7 @@
 	});
 	
 	// add image urls
-	$Router->addRoute("GET", "/(?P<key>[a-zA-Z0-9]{6,9})/?", function(string $key) {
+	$Router->addRoute("GET", "/(?P<key>[\w\-_]{7,9})/?", function(string $key) {
 			$Image = new Image($key);
 
 			if(false !== ($type = $Image->validate())) {

@@ -2,31 +2,27 @@
 	/**
 	 * Reporting functionality
 	 */
-	class Report {
+	class Report extends Result {
 		public function __construct() {}
 
 		public function error() : void {
-			$this->result("There was amn error processing your request.");
+			$this->result(
+				self::UPLOAD,
+				"<p>There was amn error processing your request.</p>"
+			);
 		}
 
 		public function logRequest(string $url) : bool {
-			
+			$this->result(
+				self::REPORT,
+				"<p>This is a result.</p>"
+			);
 		}
 
 		public function success() : void {
-			$this->result("Your report has been saved.");
-		}
-
-		private function result(string $_string = "") : void {
-			$message = null;
-
-			if($_result) {
-				$message = $_result;
-			}
-
-			header("HX-Trigger-After-Swap: initIMGHaus");
-
-			include VIEW_PATH . "/report-form.php";
-			exit;
+			$this->result(
+				self::REPORT,
+				"<p>Your report has been saved.</p>"
+			);
 		}
 	}
