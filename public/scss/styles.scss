@@ -380,6 +380,10 @@ section {
 	&:focus {
 		background-color:var(--color-white);
 	}
+
+	&:disabled {
+		opacity:0.5;
+	}
 }
 
 .toggle-label {

@@ -12,7 +12,7 @@
 		<link rel="stylesheet" type="text/css" href="css/styles.css"/>
 		<script src="https://unpkg.com/htmx.org@1.9.6"></script>
 	</head>
-	<body class="report">
+	<body>
 		<div id="progress"><div id="progress-bar"></div></div>
 		<div id="app">
 			<header class="std-border name">

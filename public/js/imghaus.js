@@ -49,17 +49,6 @@
 		htmx.find("#report-result").innerHTML = "<p>sending...</p>";
 	});
 
-	document.querySelectorAll(".report-toggle").forEach(repToggle => {
-		repToggle.addEventListener("click", e => {
-			e.preventDefault();
-
-			document.body.classList.toggle("report");
-
-			window.scrollTo({top:0, behavior:"smooth"});
-		});
-	});
-
-
 	document.body.addEventListener("initIMGHaus", e => {
 		document.getElementById("file_input").addEventListener("change", function(e) {
 			const file = this.files[0];
@@ -73,6 +62,16 @@
 				htmx.find("#upload-result").innerHTML = "<p></p>";
 				htmx.find("#file_text").innerHTML = file.name;
 			}
+		});
+
+		document.querySelectorAll(".report-toggle").forEach(repToggle => {
+			repToggle.addEventListener("click", e => {
+				e.preventDefault();
+	
+				document.body.classList.toggle("report");
+	
+				window.scrollTo({top:0, behavior:"smooth"});
+			});
 		});
 	});
 

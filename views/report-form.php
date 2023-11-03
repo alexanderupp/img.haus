@@ -5,7 +5,7 @@
 	<div id="report-result" class="<?php if($message ?? false) { echo "dbl-pad complete"; } ?> bold"><?php echo $message ?? ""; ?></div>
 	<p class="std-pad">Image URL:</p>
 	<div class="dbl-pad">
-		<input type="text" class="textdata" name="report_url" placeholder="https://img.haus/xxxxxxx" required pattern="http?:\/\/img\.local\/[\w\-\_]{7,9}" title="Image URL"/>
+		<input type="text" class="textdata" name="report_url" placeholder="https://img.haus/xxxxxxx" required pattern="http?:\/\/img\.local\/[\w\-_]{7,9}" title="Image URL"/>
 	</div>
 	<p class="std-pad std-line">Reason for reporting:</p>
 	<div class="std-pad">
@@ -32,6 +32,6 @@
 	</div>
 	<div id="report-buttons">
 		<button type="submit" id="submit-report">Submit</button>
-		<button class="report-toggle">cancel</button>
+		<button type="button" class="report-toggle">cancel</button>
 	</div>
 </form>
