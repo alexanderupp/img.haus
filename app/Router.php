@@ -12,7 +12,8 @@
 		 * 
 		 * @param string $_method		Request method
 		 * @param string $_url			Request url
-		 * @param closure $_action		
+		 * @param closure $_action
+		 * @return void
 		 */
 		public function addRoute(string $_method, string $_url, closure $_action) : void {
 			$this->routes[$_method][$_url] = $_action;
@@ -21,7 +22,9 @@
 		/**
 		 * Attempts to match a route
 		 * 
-		 * @return void
+		 * @param string $_method		Request method
+		 * @param string $_url			Request url
+		 * @return bool
 		 */
 		public function match(string $_method, string $_url) : bool {
 			if(empty($this->routes[$_method])) {
